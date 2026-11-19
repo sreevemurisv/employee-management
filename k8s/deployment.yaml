@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-management
+  labels:
+    app: employee-management
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: employee-management
+  template:
+    metadata:
+      labels:
+        app: employee-management
+    spec:
+      containers:
+        - name: employee-management
+          image: sreedocker95/employee-management:1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
